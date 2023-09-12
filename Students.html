@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="Style Hogwarts.css" />
+	<link href="https://fonts.cdnfonts.com/css/harry-potter" rel="stylesheet">               
+	<title>Hogwarts school of Witchcraft and Wizardy</title>
+</head>
+<body id=background>
+	<ul class=navbar>
+  <li><a href="Hogwarts.html">Home</a></li>
+  <li><a href="Students.html">Students</a></li>
+  <li><a href="Teachers.html">Teachers</a></li>
+  <li><a href="Courses.html">Courses</a></li>
+	</ul>
+
+<h1>Students of Hogwarts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Age</th>
+    <th></th>
+  </tr>
+  <!--Hello Barra, I have been experimenting to try and get the information from the .js file to display in the table below. I just can't seem to find the right approach. What code do I need to do it? And how do I select the right sting. For Example stundentInfo[0[0]] of studentInfo[name[0]]-->
+  <tr>
+    <td><script>document.getElementById(studentInfo[0])</script></td>
+    <td>Data from .js</td>
+    <td><button name='caseOne' onclick=>Expelliamus!</button>
+	</td>
+  </tr>
+  <tr>
+    <td>Data from .js</td>
+    <td>Data from .js</td>
+    <td><button name='caseTwo' onclick=>Expelliamus!</button>
+	</td>
+  </tr>
+  <tr>
+    <td>Data from .js</td>
+    <td>Data from .js</td>
+    <td><button name='caseThree' onclick=>Expelliamus!</button>
+	</td>
+  </tr>
+  <tr>
+    <td>Data from .js</td>
+    <td>Data from .js</td>
+    <td><button name='caseFour' onclick=>Expelliamus!</button>
+	</td>
+  </tr>
+  <tr>
+    <td>Data from .js</td>
+    <td>Data from .js</td>
+    <td><button name='caseFive' onclick=>Expelliamus!</button>
+	</td>
+  </tr>
+</table>
+
+	<h1>I know who you are....</h1>
+
+<h2>Who would you like to look up?</h2>
+<form>
+  <label for="name">Name:</label><br>
+  <input type="text" id="name" value="Who?"><br><br>
+  <input type="submit">
+</form>
+<br>
+<h2>New at school? Tell us who and how old you are.</h2>
+<br>
+<form id="studentForm">
+  <label for="name">Name:</label><br>
+  <input type="text" name="studentName" value="Who?"><br><br>
+  <label for="name">Age:</label><br>
+  <input type="number" name="studentAge" value="How old?"><br><br>
+  <input type="submit">
+</form>
+
+  <!--How do I make this table automaticly expand when new students are added? What action can I use to delete student?-->
+<script src="Witchcraft.js"></script>
+</body>
+</html>
