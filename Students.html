@@ -17,51 +17,28 @@
 
 <h1>Students of Hogwarts</h1>
 
-<table>
+<table id='studentTable'>
+ <thead>
   <tr>
     <th>Name</th>
     <th>Age</th>
     <th></th>
   </tr>
-  <!--Hello Barra, I have been experimenting to try and get the information from the .js file to display in the table below. I just can't seem to find the right approach. What code do I need to do it? And how do I select the right sting. For Example stundentInfo[0[0]] of studentInfo[name[0]]-->
-  <tr>
-    <td><script>/*document.getElementById(studentInfo[0]).innerHTML*/</script></td>
-    <td>Data from .js</td>
-    <td><button name='caseOne' onclick=>Expelliamus!</button>
-	</td>
-  </tr>
-  <tr>
-    <td>Data from .js</td>
-    <td>Data from .js</td>
-    <td><button name='caseTwo' onclick=>Expelliamus!</button>
-	</td>
-  </tr>
-  <tr>
-    <td>Data from .js</td>
-    <td>Data from .js</td>
-    <td><button name='caseThree' onclick=>Expelliamus!</button>
-	</td>
-  </tr>
-  <tr>
-    <td>Data from .js</td>
-    <td>Data from .js</td>
-    <td><button name='caseFour' onclick=>Expelliamus!</button>
-	</td>
-  </tr>
-  <tr>
-    <td>Data from .js</td>
-    <td>Data from .js</td>
-    <td><button name='caseFive' onclick=>Expelliamus!</button>
-	</td>
-  </tr>
+</thead>
+<tbody id='studentTableBody'>
+	
+</tbody>
+  <!--Hello Barra, I have been experimenting to try and get the information from the .js file to display in the table below. I just can't seem to find the right approach. What code do I need to do it? And how do I select the right string. For Example stundentInfo[0[0]] or studentInfo[name[0]]-->
+  
 </table>
+<!--How do I make this table automaticly expand when new students are added? What action can I use to delete student?-->
 
 	<h1>I know who you are....</h1>
 
 <h2>Who would you like to look up?</h2>
 <form>
   <label for="name">Name:</label><br>
-  <input type="text" id="name" value="Who?"><br><br>
+  <input type="text" name="nameInput" value="Who?"><br><br>
   <input type="submit">
 </form>
 <br>
@@ -75,7 +52,7 @@
   <input type="submit">
 </form>
 
-  <!--How do I make this table automaticly expand when new students are added? What action can I use to delete student?-->
+  
 <script src="Witchcraft.js"></script>
 </body>
 </html>
