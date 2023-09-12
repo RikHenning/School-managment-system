@@ -40,13 +40,13 @@ table, tr, td, th {
   	margin-right: auto;
   	padding: 22px 40px;
 	text-align: center;
-	
+	border-spacing: 26px;
 }
 
 td, th {
 	border: 7px solid;
 	border-color: #1a472a;
 	border-radius: 18px;
-	border-spacing: 26px;
+	
 }
 /*why is the spacing not resulting in a bigger space between the blocks?*/ 
