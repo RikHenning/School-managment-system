@@ -17,20 +17,31 @@ function createStudentRow(studenty, index) {
   const ageCell = document.createElement("td");
   ageCell.textContent = studenty.age;
 
-  /*const actionsCell = document.createElement("td");
+  const actionsCell = document.createElement("td");
   const deleteButton = document.createElement("button");
-  deleteButton.textContent = "Delete";
-  deleteButton.addEventListener("click", () => deleteStudent(index));
+  deleteButton.textContent = "Expelliamus!";
+  /*deleteButton.addEventListener("click", () => deleteStudent(index) {
+    delete studentInfo[nameCell, ageCell]
+  });*/
 
-  const editButton = document.createElement("button");
-  editButton.textContent = "Edit";
-  editButton.addEventListener("click", () => editStudent(index));
-
+  /*Goodmorning Barra, Thank you again for last night. I was experimenting
+  With this delete function. I managed to get the button's in the table.
+  Next to get it to delete a single student is where I got stuck. The commented out 
+  section deletes all students from the array. Am I using the right "delete"-command? 
+  or is there something better. Layout wise I don't know yet why the button doesn't
+  recieve a border.
+  As to why there is a second student added when we add one I haven't come
+  to a conclusion yet. I took out labels in the HTML to see if it would make any differance.
+  Am I correct to think that the name label with the input button is needed for 
+  event.target.element or could we use something else? Is naming our label "name" for students
+  Confusing for the code?*/
+  
   actionsCell.appendChild(deleteButton);
-  actionsCell.appendChild(editButton);
-*/
+  /*actionsCell.appendChild(editButton);*/
+
   row.appendChild(nameCell);
   row.appendChild(ageCell);
+  row.appendChild(deleteButton);
   /*row.appendChild(gradeCell);
   row.appendChild(actionsCell);
 */
@@ -74,7 +85,6 @@ studentForm.addEventListener("submit", (event) => {
   const ageOutput = document.getElementById( 
     if nameInput === studentInfo['name'] {
       console.log(??)}}
-how do I get the right info from the string. getElementById(studentInfo['name':'nameInput', 'age': ?])
 */    
 
 /*function deleteStudent(event) {
@@ -99,3 +109,42 @@ console.log(`variable x value: ${x}`);
 studentForm.addEventListener("submit", (event) => {
   addStudent(event);
 });
+
+
+const teacherForm = document.getElementById("teacherForm");
+
+console.log(teacherForm);
+
+const teacherTable = document.getElementById('teacherTableBody')
+
+function createTeacherRow(teacher, index) {
+  const row = document.createElement("tr");
+
+  const teacherNameCell = document.createElement("td");
+  nameCell.textContent = teacher.teacherName;
+
+  const teacherExCell = document.createElement("td");
+  ageCell.textContent = teacher.teacherEx;
+
+  const teacherSubjCell = document.createElement("td");
+  ageCell.textContent = teacher.teacherSubj;
+
+  
+  row.appendChild(teacherNameCell);
+  row.appendChild(teacherExCell);
+  row.appendChild(teacherSubjCell); 
+  return row;
+}
+
+function displayTeachers() {
+
+  teacherTable.innerHTML = "";
+
+  teacherInfo.forEach((teacher, index) => {
+    const teacherRow = createTeacherRow(teacher, index);
+    teacherTable.appendChild(teacherRow);
+  });
+
+}
+
+
