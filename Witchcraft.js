@@ -20,9 +20,7 @@ function createStudentRow(studenty, index) {
   const actionsCell = document.createElement("td");
   const deleteButton = document.createElement("button");
   deleteButton.textContent = "Expelliamus!";
-  /*deleteButton.addEventListener("click", () => deleteStudent(index) {
-    delete studentInfo[nameCell, ageCell]
-  });*/
+  deleteButton.addEventListener("click", () => deleteStudent(index));
 
   /*Goodmorning Barra, Thank you again for last night. I was experimenting
   With this delete function. I managed to get the button's in the table.
@@ -52,8 +50,8 @@ function displayStudents() {
 
   studentTable.innerHTML = "";
 
-  studentInfo.forEach((studentx, index) => {
-    const studentRow = createStudentRow(studentx, index);
+  studentInfo.forEach((student, index) => {
+    const studentRow = createStudentRow(student, index);
     studentTable.appendChild(studentRow);
   });
 
@@ -65,12 +63,13 @@ function addStudent(event) {
   const name = event.target.elements.studentName.value;
   const age = parseInt(event.target.elements.studentAge.value);
 
-  const student = {name, age}
-  studentInfo.push(student);
+  const studentx = {name, age}
+  studentInfo.push(studentx);
 
-  console.log("New student added:", student);
-  event.target.reset();
+  console.log("New student added:", studentx);
+  
   displayStudents();
+  event.target.reset();
 }
 
 displayStudents();
@@ -87,16 +86,10 @@ studentForm.addEventListener("submit", (event) => {
       console.log(??)}}
 */    
 
-/*function deleteStudent(event) {
-  event.preventDefault();
-  
-  delete studentInfo[event.target.elements.delStudent]
-  const student = {name, age}
-  studentInfo.push(student);
-
-  console.log("New student added:", student);
-  event.target.reset();
-}*/
+function deleteStudent(index) {
+  studentInfo.splice(index, 1);
+  displayStudents();
+}
 
 /*function deleteStudent(event)
 const x = studentInfo.splice(1, 1);
@@ -146,5 +139,7 @@ function displayTeachers() {
   });
 
 }
+
+displayTeachers();
 
 
