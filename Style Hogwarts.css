@@ -46,6 +46,9 @@ table, tr, td, th {
 td, th {
 	border: 7px solid;
 	border-color: #1a472a;
-	border-radius: 18px;
-	
+	border-radius: 18px;	
+}
+
+.tableButton {
+
 }
