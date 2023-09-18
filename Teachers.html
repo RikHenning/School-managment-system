@@ -30,6 +30,39 @@
 </tbody> 
 </table>
 
+<div class='tForms'>
+<h2>Appoint new teacher at Hogwarts</h2>
+<br>
+<form id="teacherForm">
+  <label for="teacherName">Name:</label><br>
+  <input type="text" name="teacherName" required id='teacherName'><br><br>
+  <label for="teacherEx">Experience:</label><br>
+  <input type="number" name="teacherEx" required id='teacherEx'><br><br>
+  <label for="teacherSubj">Subject:</label><br>
+  <input type="text" name="teacherSubj" required id='teacherSubj'><br><br>
+  <input type="submit">
+</form>
+
+<!--  I would like to know how to get all teachers from the Javascrpit list in the dropdown button below. Next I want to add the new subject to the existing subject. -->
+
+<h2>Teacher learned a new Subject</h2>
+<br>
+<form id="addSubj">
+  <div>
+  	<label for="nameList">Name:</label><br>
+  	<button class="dropbtn" required id='nameList'></button><br><br>
+  	<div>
+  		<!-- <a href="content from teacherInfo"> -->
+			<a>Teacher 1</a>
+  			<a>Teacher 1</a>
+  	</div>
+  </div>
+  <label for="extraSubj">New subject:</label><br>
+  <input type="text" name="extraSubj" required id='extraSubj'><br><br>
+  <input type="submit">
+</form>
+</div>
+
 <script src="Witchcraft.js"></script>
 </body>
 </html>

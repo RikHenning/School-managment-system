@@ -121,6 +121,11 @@ function createTeacherRow(teacher, indexTeacher) {
 
 function displayTeachers() {
 
+
+if(!teacherTable) {
+  return;
+}
+
   teacherTable.innerHTML = "";
 
   teacherInfo.forEach((teacher, index) => {
@@ -131,6 +136,26 @@ function displayTeachers() {
 
 }
 
+function addTeacher(enter) {
+  event.preventDefault();
+  const teacherName = event.target.elements.teacherName.value;
+  const teacherEx = parseInt(event.target.elements.teacherEx.value);
+  const teacherSubj = event.target.elements.teacherSubj.value;
+
+  const newTeacher = {teacherName, teacherEx, teacherSubj}
+  studentInfo.push(newTeacher);
+
+  console.log("New teacher added:", newTeacher);
+  
+  displayTeachers();
+  event.target.reset();
+}
+
 displayTeachers();
 
+if(teacherForm) {
+  teacherForm.addEventListener("submit", (enter) => {
+  addTeacher(enter);
+  });
+}
 

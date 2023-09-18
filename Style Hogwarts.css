@@ -50,5 +50,24 @@ td, th {
 }
 
 .tableButton {
+	margin-left: auto;
+  	margin-right: auto;
+  	padding: 22px 40px;
+	text-align: center;
+	border-spacing: 26px;
+	border: 7px solid;
+	border-color: #1a472a;
+	border-radius: 18px;
+	background-color: #0e1a40;
+	color: #740001;
+	font-family: 'Harry Potter', sans-serif;
+	font-size: 17px;
+	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+}
 
+/*Why do the forms not get displayed inline?*/
+
+.tForms form {
+	display: inline;
+	vertical-align: middle;
 }
