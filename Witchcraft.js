@@ -2,7 +2,7 @@ const studentInfo = [{'name':'Harry', 'age':11}, {'name':'Ron', 'age':12}, {'nam
 const teacherInfo = [{'teacherName':'Snape', 'teacherEx':40, 'teacherSubj':'Potions'}, {'teacherName':'Dumbeldore', 'teacherEx':100, 'teacherSubj':'Defence against the dark arts'}, {'teacherName':'Hagrid', 'teacherEx':2, 'teacherSubj':'Magical Creatures'}]
 // const courseInfo = [{'courseName':'Poitions', 'courseTeacher':'Snape'}, {'courseName':'Magical Creatures', 'courseTeacher':'Hagrid'}, {'courseName':'Defence against the dark arts', 'courseTeacher':'Dumbeldore'}]
 
-const courseInfo = [{'courseName':'Poitions', 'courseTeacher':teacherInfo[0]}, {'courseName':'Magical Creatures', 'courseTeacher':'Hagrid'}, {'courseName':'Defence against the dark arts', 'courseTeacher':'Dumbeldore'}]
+const courseInfo = [{'courseName':teacherInfo[teacherSubj[0]], 'courseTeacher':teacherInfo[teacherName[0]]}, {'courseName':teacherInfo[teacherSubj[1]], 'courseTeacher':teacherInfo[teacherName[1]]}, {'courseName':teacherInfo[teacherSubj[2]], 'courseTeacher':teacherInfo[teacherName[2]]}]
 
 const studentForm = document.getElementById("studentForm");
 
@@ -143,7 +143,7 @@ function addTeacher(enter) {
   const teacherSubj = event.target.elements.teacherSubj.value;
 
   const newTeacher = {teacherName, teacherEx, teacherSubj}
-  studentInfo.push(newTeacher);
+  teacherInfo.push(newTeacher);
 
   console.log("New teacher added:", newTeacher);
   
@@ -158,4 +158,15 @@ if(teacherForm) {
   addTeacher(enter);
   });
 }
+
+function addTeacherSubj(teacherInfo){
+  var click = document.getElementById("teacherInfo");  
+         if(click.style.display ==="none") {  
+            click.style.display ="block";  
+         } else {  
+            click.style.display ="none";  
+         }   
+
+
+  }
 
