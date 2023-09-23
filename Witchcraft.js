@@ -2,7 +2,7 @@ const studentInfo = [{'name':'Harry', 'age':11}, {'name':'Ron', 'age':12}, {'nam
 const teacherInfo = [{'teacherName':'Snape', 'teacherEx':40, 'teacherSubj':'Potions'}, {'teacherName':'Dumbeldore', 'teacherEx':100, 'teacherSubj':'Defence against the dark arts'}, {'teacherName':'Hagrid', 'teacherEx':2, 'teacherSubj':'Magical Creatures'}]
 // const courseInfo = [{'courseName':'Poitions', 'courseTeacher':'Snape'}, {'courseName':'Magical Creatures', 'courseTeacher':'Hagrid'}, {'courseName':'Defence against the dark arts', 'courseTeacher':'Dumbeldore'}]
 
-const courseInfo = [{'courseName':teacherInfo[teacherSubj[0]], 'courseTeacher':teacherInfo[teacherName[0]]}, {'courseName':teacherInfo[teacherSubj[1]], 'courseTeacher':teacherInfo[teacherName[1]]}, {'courseName':teacherInfo[teacherSubj[2]], 'courseTeacher':teacherInfo[teacherName[2]]}]
+const courseInfo = [{'courseName':"Magic level 1", 'courseTeacher':teacherInfo[0]}]
 
 const studentForm = document.getElementById("studentForm");
 
@@ -96,7 +96,7 @@ console.log(`variable x value: ${x}`);
 */
 
 
-// const teacherForm = document.getElementById("teacherForm");
+const teacherForm = document.getElementById("teacherForm");
 
 const teacherTable = document.getElementById('teacherTableBody')
 
@@ -149,7 +149,9 @@ function addTeacher(enter) {
   
   displayTeachers();
   event.target.reset();
+  displayCourseTeacherOptions();
 }
+
 
 displayTeachers();
 
@@ -170,3 +172,52 @@ function addTeacherSubj(teacherInfo){
 
   }
 
+const courseForm = document.getElementById("courseForm");
+
+
+function addCourse(event) {
+  event.preventDefault();
+  const courseName = event.target.elements.courseName.value;
+  const courseTeacher = event.target.elements.courseTeacher.value;
+
+const teacherIndex = parseInt(courseTeacher);
+  const selectedTeacher = teacherInfo.filter((teacher, index) => index === teacherIndex)[0];
+
+  console.log(selectedTeacher[0])
+  const newCourse = {courseName, selectedTeacher};
+  courseInfo.push(newCourse);
+
+  console.log("New course added:", newCourse);
+  
+  // displayTeachers();
+  event.target.reset();
+}
+
+
+if(courseForm) {
+  courseForm.addEventListener("submit", (enter) => {
+  addCourse(enter);
+  });
+}
+
+function displayCourseTeacherOptions() {
+  const courseTeacherSelectElement = document.getElementById('courseTeacher');
+
+  const defaultOption = document.createElement('option');
+  defaultOption.selected = true;
+  defaultOption.disabled = true;
+  defaultOption.textContent = 'Select a teacher'
+  courseTeacherSelectElement.innerHTML = null;
+  courseTeacherSelectElement.appendChild(defaultOption);
+
+  teacherInfo.forEach((teacher, index) => {
+    const optionElement = document.createElement('option');
+
+    optionElement.value = index.toString();
+    optionElement.textContent = teacher.teacherName;
+
+    courseTeacherSelectElement.appendChild(optionElement);
+  });
+}
+
+displayCourseTeacherOptions();
