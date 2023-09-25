@@ -9,10 +9,10 @@
 </head>
 <body id=background>
 	<ul class=navbar>
-  <li><a href="Hogwarts.html">Home</a></li>
-  <li><a href="Students.html">Students</a></li>
-  <li><a href="Teachers.html">Teachers</a></li>
-  <li><a href="Courses.html">Courses</a></li>
+  		<li><a href="Hogwarts.html">Home</a></li>
+  		<li><a href="Students.html">Students</a></li>
+ 		<li><a href="Teachers.html">Teachers</a></li>
+  		<li><a href="Courses.html">Courses</a></li>
 	</ul>
 
 <h1>Teachers of Hogwarts</h1>
@@ -33,35 +33,26 @@
 <div class='tForms'>
 <h2>Appoint new teacher at Hogwarts</h2>
 <br>
-<form id="teacherForm">
-  <label for="teacherName">Name:</label><br>
-  <input type="text" name="teacherName" required id='teacherName'><br><br>
-  <label for="teacherEx">Experience:</label><br>
-  <input type="number" name="teacherEx" required id='teacherEx'><br><br>
-  <label for="teacherSubj">Subject:</label><br>
-  <input type="text" name="teacherSubj" required id='teacherSubj'><br><br>
-  <input type="submit">
-</form>
-
-<!--  I would like to know how to get all teachers from the Javascrpit list in the dropdown button below. Next I want to add the new subject to the existing subject. -->
+	<form id="teacherForm">
+  		<label for="teacherName">Name:</label><br>
+  		<input type="text" name="teacherName" required id='teacherName'><br><br>
+  		<label for="teacherEx">Experience:</label><br>
+  		<input type="number" name="teacherEx" required id='teacherEx'><br><br>
+  		<label for="teacherSubj">Subject:</label><br>
+  		<input type="text" name="teacherSubj" required id='teacherSubj'><br><br>
+  		<input type="submit">
+	</form>
 
 <h2>Teacher learned a new Subject</h2>
 <br>
-<form id="addSubj">
-  <div>
-  	<label for="nameList">Name:</label><br>
-  	<button class="dropbtn" required id='nameList'></button><br><br>
-  	<div>
-  		<!-- <a href="content from teacherInfo"> -->
-			<a>Teacher 1</a>
-  			<a>Teacher 1</a>
-  	</div>
-  </div>
-  <label for="extraSubj">New subject:</label><br>
-  <input type="text" name="extraSubj" required id='extraSubj'><br><br>
-  <input type="submit">
-</form>
-</div>
+	<form id='newSubj'>
+		<input type="text" name="newSubj" required id='newSubj'><br><br>
+		<select id="teacherName" name="teacherName">
+  			
+		</select>
+		<br><br>
+		<input type="submit" value="New Subject"></input>
+	</form>
 
 <script src="Witchcraft.js"></script>
 </body>

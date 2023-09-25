@@ -2,7 +2,7 @@ const studentInfo = [{'name':'Harry', 'age':11}, {'name':'Ron', 'age':12}, {'nam
 const teacherInfo = [{'teacherName':'Snape', 'teacherEx':40, 'teacherSubj':'Potions'}, {'teacherName':'Dumbeldore', 'teacherEx':100, 'teacherSubj':'Defence against the dark arts'}, {'teacherName':'Hagrid', 'teacherEx':2, 'teacherSubj':'Magical Creatures'}]
 // const courseInfo = [{'courseName':'Poitions', 'courseTeacher':'Snape'}, {'courseName':'Magical Creatures', 'courseTeacher':'Hagrid'}, {'courseName':'Defence against the dark arts', 'courseTeacher':'Dumbeldore'}]
 
-const courseInfo = [{'courseName':"Magic level 1", 'courseTeacher':teacherInfo[0]}]
+const courseInfo = [{'courseName':"Magic level 1", 'courseTeacher':teacherInfo[0]}, {'courseName':"Magic level 2", 'courseTeacher':teacherInfo[1]}, {'courseName':"Magic level 3", 'courseTeacher':teacherInfo[2]}]
 
 const studentForm = document.getElementById("studentForm");
 
@@ -174,6 +174,53 @@ function addTeacherSubj(teacherInfo){
 
 const courseForm = document.getElementById("courseForm");
 
+function addNewSubj(event) {
+  event.preventDefault();
+  const newSubj= event.target.elements.newSubj.value;
+  const teacherName = event.target.elements.teacherName.value;
+
+  const teacherIndex = parseInt(courseTeacher);
+  const selectedTeacher = teacherInfo.filter((teacher, index) => index === teacherIndex)[0];
+    selectedTeacher.concat("<br>", newSubj)
+
+  console.log("Teacher learned new subject:", selectedTeacher);
+  
+  event.target.reset();
+}
+
+
+if(newSubj) {
+  newSubj.addEventListener("submit", (enter) => {
+  addNewSubj(enter); //I don't know why this gives a problem
+  });
+}
+
+function displayCourseTeacherOptions() {
+  event.preventDefault();//added this in hoping it would solve error.
+  const courseTeacherSelectElement = document.getElementById('teacherName');
+
+  const defaultOption = document.createElement('option');//Creates the default dropdown option
+  defaultOption.selected = true; //makes the default option to be the first o be selected when the page opens
+  defaultOption.disabled = true; //Makes it impossible for the user to select this option 
+  defaultOption.textContent = 'Select a teacher' // Text to be displayed
+  courseTeacherSelectElement.innerHTML = null; //Why is this one here
+  courseTeacherSelectElement.appendChild(defaultOption); //Links this dropdown option to the dropdown menu
+
+  teacherInfo.forEach((teacher, index) => {
+    const optionElement = document.createElement('option');
+
+    optionElement.value = index.toString();
+    optionElement.textContent = teacher.teacherName;
+
+    courseTeacherSelectElement.appendChild(optionElement);
+  });
+}
+
+if(courseForm){
+
+displayCourseTeacherOptions();
+
+}
 
 function addCourse(event) {
   event.preventDefault();
@@ -201,14 +248,15 @@ if(courseForm) {
 }
 
 function displayCourseTeacherOptions() {
+  event.preventDefault();//added this in hoping it would solve error.
   const courseTeacherSelectElement = document.getElementById('courseTeacher');
 
-  const defaultOption = document.createElement('option');
-  defaultOption.selected = true;
-  defaultOption.disabled = true;
-  defaultOption.textContent = 'Select a teacher'
-  courseTeacherSelectElement.innerHTML = null;
-  courseTeacherSelectElement.appendChild(defaultOption);
+  const defaultOption = document.createElement('option');//Creates the default dropdown option
+  defaultOption.selected = true; //makes the default option to be the first o be selected when the page opens
+  defaultOption.disabled = true; //Makes it impossible for the user to select this option 
+  defaultOption.textContent = 'Select a teacher' // Text to be displayed
+  courseTeacherSelectElement.innerHTML = null; //Why is this one here
+  courseTeacherSelectElement.appendChild(defaultOption); //Links this dropdown option to the dropdown menu
 
   teacherInfo.forEach((teacher, index) => {
     const optionElement = document.createElement('option');
@@ -220,4 +268,8 @@ function displayCourseTeacherOptions() {
   });
 }
 
+if(courseForm){
+
 displayCourseTeacherOptions();
+
+}
