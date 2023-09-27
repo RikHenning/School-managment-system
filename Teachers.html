@@ -30,29 +30,32 @@
 </tbody> 
 </table>
 
-<div class='tForms'>
-<h2>Appoint new teacher at Hogwarts</h2>
-<br>
-	<form id="teacherForm">
-  		<label for="teacherName">Name:</label><br>
-  		<input type="text" name="teacherName" required id='teacherName'><br><br>
-  		<label for="teacherEx">Experience:</label><br>
-  		<input type="number" name="teacherEx" required id='teacherEx'><br><br>
-  		<label for="teacherSubj">Subject:</label><br>
-  		<input type="text" name="teacherSubj" required id='teacherSubj'><br><br>
-  		<input type="submit">
-	</form>
-
-<h2>Teacher learned a new Subject</h2>
-<br>
-	<form id='newSubj'>
-		<input type="text" name="newSubj" required id='newSubj'><br><br>
-		<select id="teacherName" name="teacherName">
-  			
-		</select>
-		<br><br>
-		<input type="submit" value="New Subject"></input>
-	</form>
+<div class="tForms">
+	<div class='tColumn'>
+		<h2>Appoint new teacher at Hogwarts</h2>
+		<br>
+			<form id="teacherForm">
+  				<label for="teacherName">Name:</label><br>
+  				<input type="text" name="teacherName" required id='teacherName'><br><br>
+  				<label for="teacherEx">Experience:</label><br>
+  				<input type="number" name="teacherEx" required id='teacherEx'><br><br>
+  				<label for="teacherSubj">Subject:</label><br>
+  				<input type="text" name="teacherSubj" required id='	teacherSubj'><br><br>
+  				<input type="submit">
+			</form>
+	</div>
+	<div class="tColumn">
+		<h2>Teacher learned a new Subject</h2>
+			<br>
+			<form id='newSubj'>
+				<input type="text" name="newSubj" required id='newSubj'><br><br>
+				<select id="teacherName" name="teacherName">
+  				</select>
+				<br><br>
+				<input type="submit" value="New Subject"></input>
+			</form>
+	</div>
+</div>
 
 <script src="Witchcraft.js"></script>
 </body>
