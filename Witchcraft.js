@@ -1,5 +1,5 @@
 const studentInfo = [{'name':'Harry', 'age':11}, {'name':'Ron', 'age':12}, {'name':'Hermionie', 'age':12} ];
-const teacherInfo = [{'teacherName':'Snape', 'teacherEx':40, 'teacherSubj':'Potions'}, {'teacherName':'Dumbeldore', 'teacherEx':100, 'teacherSubj':'Defence against the dark arts'}, {'teacherName':'Hagrid', 'teacherEx':2, 'teacherSubj':'Magical Creatures'}]
+const teacherInfo = [{'teacherName':'Snape', 'teacherEx':40, 'teacherSubj':['Potions']}, {'teacherName':'Dumbeldore', 'teacherEx':100, 'teacherSubj':['Defence against the dark arts']}, {'teacherName':'Hagrid', 'teacherEx':2, 'teacherSubj':['Magical Creatures']}]
 // const courseInfo = [{'courseName':'Poitions', 'courseTeacher':'Snape'}, {'courseName':'Magical Creatures', 'courseTeacher':'Hagrid'}, {'courseName':'Defence against the dark arts', 'courseTeacher':'Dumbeldore'}]
 
 const courseInfo = [{'courseName':"Magic level 1", 'courseTeacher':teacherInfo[0]}, {'courseName':"Magic level 2", 'courseTeacher':teacherInfo[1]}, {'courseName':"Magic level 3", 'courseTeacher':teacherInfo[2]}]
@@ -109,9 +109,17 @@ function createTeacherRow(teacher, indexTeacher) {
   const teacherExCell = document.createElement("td");
   teacherExCell.textContent = teacher.teacherEx;
 
-  const teacherSubjCell = document.createElement("td");
-  teacherSubjCell.textContent = teacher.teacherSubj;
+  // const teacherSubjCell = document.createElement("td");
+  // teacherSubjCell.textContent = teacher.teacherSubj;
 
+  const teacherSubjCell = document.createElement("td");
+
+    if (teacher.teacherSubj.length > 1) // if adding a teacher with one string in the subject it still runs the  .join line. why?
+    {
+        teacherSubjCell.textContent = teacher.teacherSubj.join(', ');
+    } else {
+        teacherSubjCell.textContent = teacher.teacherSubj[0]
+    }
   
   row.appendChild(teacherNameCell);
   row.appendChild(teacherExCell);
@@ -189,11 +197,11 @@ function addNewSubj(event) {
 }
 
 
-if(newSubj) {
-  newSubj.addEventListener("submit", (enter) => {
-  addNewSubj(enter); //I don't know why this gives a problem
-  });
-}
+// if(newSubj) {
+//   newSubj.addEventListener("submit", (enter) => {
+//   addNewSubj(enter); //I don't know why this gives a problem
+//   });
+// }
 
 function displayCourseTeacherOptions() {
   event.preventDefault();//added this in hoping it would solve error.
@@ -247,29 +255,87 @@ if(courseForm) {
   });
 }
 
-function displayCourseTeacherOptions() {
-  event.preventDefault();//added this in hoping it would solve error.
-  const courseTeacherSelectElement = document.getElementById('courseTeacher');
 
-  const defaultOption = document.createElement('option');//Creates the default dropdown option
-  defaultOption.selected = true; //makes the default option to be the first o be selected when the page opens
-  defaultOption.disabled = true; //Makes it impossible for the user to select this option 
-  defaultOption.textContent = 'Select a teacher' // Text to be displayed
-  courseTeacherSelectElement.innerHTML = null; //Why is this one here
-  courseTeacherSelectElement.appendChild(defaultOption); //Links this dropdown option to the dropdown menu
 
-  teacherInfo.forEach((teacher, index) => {
-    const optionElement = document.createElement('option');
+function displayTeacherOptionsForTeacherLearnedNewSubjectForm() {
+    const teacherSelectElement = document.getElementById('teacherLearnedNewSubjectFormTeacherName');
 
-    optionElement.value = index.toString();
-    optionElement.textContent = teacher.teacherName;
+    // Add the default option
+    const defaultOption = document.createElement('option');
+    defaultOption.selected = true;
+    defaultOption.disabled = true;
+    defaultOption.textContent = 'Select a teacher'
 
-    courseTeacherSelectElement.appendChild(optionElement);
-  });
+    teacherSelectElement.innerHTML = null;
+    teacherSelectElement.appendChild(defaultOption);
+
+
+    teacherInfo.forEach((teacher, index) => {
+        const optionElement = document.createElement('option');
+
+        optionElement.value = index.toString();
+        optionElement.textContent = teacher.teacherName;
+
+        teacherSelectElement.appendChild(optionElement);
+    });
 }
 
-if(courseForm){
+function displayCourseOptionsForTeacherLearnedNewSubjectForm() {
+    const courseSelectElement = document.getElementById('teacherLearnedNewSubjectFormSubjectName');
 
-displayCourseTeacherOptions();
 
+
+    // Add the default option
+    // const defaultOption = document.createElement('option');
+    // defaultOption.selected = true;
+    // defaultOption.disabled = true;
+    // defaultOption.textContent = 'Select a course'
+
+    // courseSelectElement.innerHTML = null;
+    // courseSelectElement.appendChild(defaultOption);
+
+
+    // courseInfo.forEach((course, index) => {
+    //     const optionElement = document.createElement('option');
+
+    //     optionElement.value = index.toString();
+    //     optionElement.textContent = course.courseName;
+
+    //     courseSelectElement.appendChild(optionElement);
+    // });
 }
+
+if (teacherForm) {
+    displayTeacherOptionsForTeacherLearnedNewSubjectForm();
+    displayCourseOptionsForTeacherLearnedNewSubjectForm();
+}
+
+function assignCourseToTeacher(event) {
+    event.preventDefault();
+    const teacherIndex = parseInt(event.target.elements.teacherIndex.value);
+    // const courseIndex = parseInt(event.target.elements.courseIndex.value);
+
+    const selectedTeacher = teacherInfo.filter((teacher, index) => index === teacherIndex)[0];
+
+    // const selectedCourse = courseInfo.filter((course, index) => index === courseIndex)[0];
+
+
+    // selectedTeacher.teacherSubj.push(selectedCourse.courseName);
+    selectedTeacher.teacherSubj.push(teacherLearnedNewSubjectFormSubjectName.innerHTML);
+
+    displayTeachers();
+    event.target.reset();
+}
+
+
+if (teacherLearnedNewSubjectForm) {
+    teacherLearnedNewSubjectForm.addEventListener("submit", (event) => {
+        assignCourseToTeacher(event);
+    });
+}
+
+
+
+
+
+

@@ -47,13 +47,21 @@
 	<div class="tColumn">
 		<h2>Teacher learned a new Subject</h2>
 			<br>
-			<form id='newSubj'>
-				<input type="text" name="newSubj" required id='newSubj'><br><br>
-				<select id="teacherName" name="teacherName">
-  				</select>
-				<br><br>
-				<input type="submit" value="New Subject"></input>
-			</form>
+			<form id='teacherLearnedNewSubjectForm'>
+        		<label for="teacherLearnedNewSubjectFormTeacherName">Teacher:</label><br>
+        		<select id="teacherLearnedNewSubjectFormTeacherName" name="teacherIndex">
+        		</select>
+
+        <br><br>
+
+        		<label for="teacherLearnedNewSubjectFormSubjectName">Subject:</label><br>
+        		<input type="text" name="teacherLearnedNewSubjectFormSubjectName" required id='teacherLearnedNewSubjectFormSubjectName'>
+        		<!-- <select id="teacherLearnedNewSubjectFormSubjectName" name="courseIndex">
+        		</select> -->
+
+        <br><br>
+        <input type="submit" value="New Subject">
+    </form>
 	</div>
 </div>
 

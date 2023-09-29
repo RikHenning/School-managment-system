@@ -65,16 +65,17 @@ td, th {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-.tForms {
+./*tForms {
   float: left;
   width: 50%;
-}
+}*/
 
 /* Clear floats after the columns */
-.tForms .tColumn:after {
-  content: "";
-  display: table;
-  clear: both;
+.tForms {
+  display: flex; /* Use flexbox for horizontal alignment */
+  justify-content: space-between; /* Add space between the forms */
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
  
