@@ -23,6 +23,8 @@ ul.navbar {
   	color: #ecb939;
 }
 
+
+
 li {
 	display: inline;
 	text-align: center;
@@ -43,11 +45,14 @@ table, tr, td, th {
 	border-spacing: 26px;
 }
 
+
 td, th {
 	border: 7px solid;
 	border-color: #1a472a;
 	border-radius: 18px;	
 }
+
+
 
 .tableButton {
 	margin-left: auto;
@@ -65,17 +70,22 @@ td, th {
 	box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
 
-./*tForms {
-  float: left;
-  width: 50%;
-}*/
 
-/* Clear floats after the columns */
+
 .tForms {
-  display: flex; /* Use flexbox for horizontal alignment */
-  justify-content: space-between; /* Add space between the forms */
+  display: flex; 
+  justify-content: space-between;  
   padding-left: 20%;
   padding-right: 20%;
 }
+
+
+/*tForms {
+  float: left;
+  width: 50%;
+}
+
+/* Clear floats after the columns 
+
 
  

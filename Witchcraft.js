@@ -286,23 +286,23 @@ function displayCourseOptionsForTeacherLearnedNewSubjectForm() {
 
 
     // Add the default option
-    // const defaultOption = document.createElement('option');
-    // defaultOption.selected = true;
-    // defaultOption.disabled = true;
-    // defaultOption.textContent = 'Select a course'
+    const defaultOption = document.createElement('option');
+    defaultOption.selected = true;
+    defaultOption.disabled = true;
+    defaultOption.textContent = 'Select a course'
 
-    // courseSelectElement.innerHTML = null;
-    // courseSelectElement.appendChild(defaultOption);
+    courseSelectElement.innerHTML = null;
+    courseSelectElement.appendChild(defaultOption);
 
 
-    // courseInfo.forEach((course, index) => {
-    //     const optionElement = document.createElement('option');
+    courseInfo.forEach((course, index) => {
+        const optionElement = document.createElement('option');
 
-    //     optionElement.value = index.toString();
-    //     optionElement.textContent = course.courseName;
+        optionElement.value = index.toString();
+        optionElement.textContent = course.courseName;
 
-    //     courseSelectElement.appendChild(optionElement);
-    // });
+        courseSelectElement.appendChild(optionElement);
+    });
 }
 
 if (teacherForm) {
@@ -313,15 +313,16 @@ if (teacherForm) {
 function assignCourseToTeacher(event) {
     event.preventDefault();
     const teacherIndex = parseInt(event.target.elements.teacherIndex.value);
-    // const courseIndex = parseInt(event.target.elements.courseIndex.value);
+    const courseIndex = parseInt(event.target.elements.courseIndex.value);
 
     const selectedTeacher = teacherInfo.filter((teacher, index) => index === teacherIndex)[0];
+    // const courseSelectElement = event.target.elements.teacherLearnedNewSubjectFormSubjectName.value;
+    const selectedCourse = courseInfo.filter((course, index) => index === courseIndex)[0];
 
-    // const selectedCourse = courseInfo.filter((course, index) => index === courseIndex)[0];
 
+    selectedTeacher.teacherSubj.push(selectedCourse.courseName);
+   
 
-    // selectedTeacher.teacherSubj.push(selectedCourse.courseName);
-    selectedTeacher.teacherSubj.push(teacherLearnedNewSubjectFormSubjectName.innerHTML);
 
     displayTeachers();
     event.target.reset();
