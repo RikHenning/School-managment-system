@@ -114,7 +114,7 @@ function createTeacherRow(teacher, indexTeacher) {
 
   const teacherSubjCell = document.createElement("td");
 
-    if (teacher.teacherSubj.length > 1) // if adding a teacher with one string in the subject it still runs the  .join line. why?
+    if (teacher.teacherSubj.length > 1) //The problem is here, but how to solve it.
     {
         teacherSubjCell.textContent = teacher.teacherSubj.join(', ');
     } else {
@@ -182,30 +182,24 @@ function addTeacherSubj(teacherInfo){
 
 const courseForm = document.getElementById("courseForm");
 
-function addNewSubj(event) {
-  event.preventDefault();
-  const newSubj= event.target.elements.newSubj.value;
-  const teacherName = event.target.elements.teacherName.value;
+// function addNewSubj(event) {
+//   event.preventDefault();
+//   const newSubj= event.target.elements.newSubj.value;
+//   const teacherName = event.target.elements.teacherName.value;
 
-  const teacherIndex = parseInt(courseTeacher);
-  const selectedTeacher = teacherInfo.filter((teacher, index) => index === teacherIndex)[0];
-    selectedTeacher.concat("<br>", newSubj)
+//   const teacherIndex = parseInt(courseTeacher);
+//   const selectedTeacher = teacherInfo.filter((teacher, index) => index === teacherIndex)[0];
+//     selectedTeacher.concat("<br>", newSubj)
 
-  console.log("Teacher learned new subject:", selectedTeacher);
+//   console.log("Teacher learned new subject:", selectedTeacher);
   
-  event.target.reset();
-}
-
-
-// if(newSubj) {
-//   newSubj.addEventListener("submit", (enter) => {
-//   addNewSubj(enter); //I don't know why this gives a problem
-//   });
+//   event.target.reset();
 // }
 
+
+
 function displayCourseTeacherOptions() {
-  event.preventDefault();//added this in hoping it would solve error.
-  const courseTeacherSelectElement = document.getElementById('teacherName');
+  const courseTeacherSelectElement = document.getElementById('courseTeacher');
 
   const defaultOption = document.createElement('option');//Creates the default dropdown option
   defaultOption.selected = true; //makes the default option to be the first o be selected when the page opens
@@ -326,7 +320,7 @@ function assignCourseToTeacher(event) {
 
     displayTeachers();
     event.target.reset();
-}
+
 
 
 if (teacherLearnedNewSubjectForm) {
@@ -336,7 +330,7 @@ if (teacherLearnedNewSubjectForm) {
 }
 
 
-
+}
 
 
 
