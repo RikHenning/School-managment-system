@@ -1,5 +1,5 @@
 const studentInfo = [{'name':'Harry', 'age':11}, {'name':'Ron', 'age':12}, {'name':'Hermionie', 'age':12} ];
-const teacherInfo = [{'teacherName':'Snape', 'teacherEx':40, 'teacherSubj':['Potions']}, {'teacherName':'Dumbeldore', 'teacherEx':100, 'teacherSubj':['Defence against the dark arts']}, {'teacherName':'Hagrid', 'teacherEx':2, 'teacherSubj':['Magical Creatures']}]
+const teacherInfo = [{'teacherName':'Snape', 'teacherEx':40, 'teacherSubj':["Cooking", 'Potions']}, {'teacherName':'Dumbeldore', 'teacherEx':100, 'teacherSubj':['Defence against the dark arts']}, {'teacherName':'Hagrid', 'teacherEx':2, 'teacherSubj':['Magical Creatures']}]
 // const courseInfo = [{'courseName':'Poitions', 'courseTeacher':'Snape'}, {'courseName':'Magical Creatures', 'courseTeacher':'Hagrid'}, {'courseName':'Defence against the dark arts', 'courseTeacher':'Dumbeldore'}]
 
 const courseInfo = [{'courseName':"Magic level 1", 'courseTeacher':teacherInfo[0]}, {'courseName':"Magic level 2", 'courseTeacher':teacherInfo[1]}, {'courseName':"Magic level 3", 'courseTeacher':teacherInfo[2]}]
@@ -74,13 +74,30 @@ if(studentForm) {
   });
 }
 
-/*function revealStudent(event) {
+const lookupStudentForm = document.getElementById('lookupStudent');
+
+
+
+
+function revealStudent(event) {
   event.preventDefault();
   const nameInput = event.target.elements.nameInput.value;
-  const ageOutput = document.getElementById( 
-    if nameInput === studentInfo['name'] {
-      console.log(??)}}
-*/    
+      
+   console.log(nameInput);
+  
+    const selectedStudent = studentInfo.filter((student, index) => student.name === nameInput)[0];
+
+    
+      alert(selectedStudent.name + " is " + selectedStudent.age + " years old.")
+
+    }
+
+if(lookupStudentForm) {
+  lookupStudentForm.addEventListener("submit", (event) => {
+  revealStudent(event);
+  });
+}
+
 
 function deleteStudent(index) {
   studentInfo.splice(index, 1);
@@ -114,7 +131,9 @@ function createTeacherRow(teacher, indexTeacher) {
 
   const teacherSubjCell = document.createElement("td");
 
-    if (teacher.teacherSubj.length > 1) //The problem is here, but how to solve it.
+console.log(teacher);
+
+    if (teacher.teacherSubj.length > 1) 
     {
         teacherSubjCell.textContent = teacher.teacherSubj.join(', ');
     } else {
@@ -138,7 +157,6 @@ if(!teacherTable) {
 
   teacherInfo.forEach((teacher, index) => {
     const teacherRow = createTeacherRow(teacher, index);
-    console.log(teacherRow);
     teacherTable.appendChild(teacherRow);
   });
 
@@ -148,7 +166,7 @@ function addTeacher(enter) {
   event.preventDefault();
   const teacherName = event.target.elements.teacherName.value;
   const teacherEx = parseInt(event.target.elements.teacherEx.value);
-  const teacherSubj = event.target.elements.teacherSubj.value;
+  const teacherSubj = [event.target.elements.teacherSubj.value];
 
   const newTeacher = {teacherName, teacherEx, teacherSubj}
   teacherInfo.push(newTeacher);
@@ -157,7 +175,7 @@ function addTeacher(enter) {
   
   displayTeachers();
   event.target.reset();
-  displayCourseTeacherOptions();
+  // displayCourseTeacherOptions();
 }
 
 
@@ -200,6 +218,8 @@ const courseForm = document.getElementById("courseForm");
 
 function displayCourseTeacherOptions() {
   const courseTeacherSelectElement = document.getElementById('courseTeacher');
+
+    console.log(courseTeacherSelectElement);
 
   const defaultOption = document.createElement('option');//Creates the default dropdown option
   defaultOption.selected = true; //makes the default option to be the first o be selected when the page opens
@@ -304,8 +324,12 @@ if (teacherForm) {
     displayCourseOptionsForTeacherLearnedNewSubjectForm();
 }
 
+
+const teacherLearnedNewSubjectForm = document.getElementById("teacherLearnedNewSubjectForm");
+
 function assignCourseToTeacher(event) {
     event.preventDefault();
+
     const teacherIndex = parseInt(event.target.elements.teacherIndex.value);
     const courseIndex = parseInt(event.target.elements.courseIndex.value);
 
@@ -321,7 +345,7 @@ function assignCourseToTeacher(event) {
     displayTeachers();
     event.target.reset();
 
-
+}
 
 if (teacherLearnedNewSubjectForm) {
     teacherLearnedNewSubjectForm.addEventListener("submit", (event) => {
@@ -330,7 +354,7 @@ if (teacherLearnedNewSubjectForm) {
 }
 
 
-}
+
 
 
 
